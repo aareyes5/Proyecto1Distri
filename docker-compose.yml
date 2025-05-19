@@ -1,0 +1,24 @@
+services:
+  login-api:
+    build:
+      context: .
+      dockerfile: login-api/Dockerfile
+    container_name: login-api
+    ports:
+      - "9001:9001"
+    networks:
+      - distribuidas-net
+
+  turnos-api:
+    build:
+      context: .
+      dockerfile: turnos-api/Dockerfile
+    container_name: turnos-api
+    ports:
+      - "9002:9002"
+    networks:
+      - distribuidas-net
+
+networks:
+  distribuidas-net:
+    external: true
