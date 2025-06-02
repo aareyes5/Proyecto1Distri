@@ -24,4 +24,5 @@ public interface MedicoService {
 
     List<MedicoDto> getAllMedicosByEspecialidad(Integer idEspecialidad);
     
+    String getNombreMedicoByIdPersona(Integer idPersona);
 }  

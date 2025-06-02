@@ -110,6 +110,21 @@ public class MedicosController {
         }
     }
 
+    // Endpoint para buscar el nombre de un medico por su ID persona
+    @GetMapping("/nombres")
+    public ResponseEntity<String> getNombreMedicoByIdPersona(@RequestParam("id_persona") Integer idPersona) {
+        logger.info("Buscando nombre de medico por ID persona: {}", idPersona);
+        try {
+            String nombreMedico = medicoService.getNombreMedicoByIdPersona(idPersona);
+            return ResponseEntity.ok(nombreMedico);
+        } catch (Exception e) {
+            logger.error("Error al buscar nombre de medico por ID persona: {}", idPersona, e);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    
+    
+
     
     
 }

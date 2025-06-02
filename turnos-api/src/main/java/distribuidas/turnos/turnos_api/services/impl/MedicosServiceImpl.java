@@ -155,7 +155,13 @@ public class MedicosServiceImpl implements MedicoService {
         return medicosDto;
     }
 
-
+    @Override
+    public String getNombreMedicoByIdPersona(Integer idPersona) {
+        logger.info("Buscando nombre de medico por idPersona: {}", idPersona);
+        String nombreMedico = medicoRepository.findNombreByIdPersona(idPersona);                
+        logger.info("Nombre del medico encontrado: {}", nombreMedico);
+        return nombreMedico;
+    }
     
     
 }
