@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import distribuidas.turnos.turnos_api.entities.Especialidad;
 import distribuidas.turnos.turnos_api.entities.Medico;
@@ -20,6 +21,6 @@ public interface MedicoRepository extends JpaRepository<Medico, Integer> {
             select nom.nombre 
             from log.persona nom where nom.id_persona = :idPersona
             """, nativeQuery = true)
-    String findNombreByIdPersona(Integer idPersona);
+    String findNombreByIdPersona(@Param("idPersona")Integer idPersona);
 
 }
